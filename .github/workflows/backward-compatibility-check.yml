@@ -3,6 +3,7 @@
 name: "Backward Compatibility Check"
 
 on:
+  workflow_dispatch:
   pull_request:
 
 concurrency:
