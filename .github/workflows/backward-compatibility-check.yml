@@ -31,6 +31,14 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: "Cache Composer dependencies"
+        uses: actions/cache@v4
+        with:
+          path: ~/.composer/cache/files
+          key: ${{ runner.os }}-composer-${{ hashFiles('composer.lock', 'tools/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+
       - name: "Install PHP"
         uses: "shivammathur/setup-php@2.40.0"
         with:
